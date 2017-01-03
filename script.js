@@ -4,10 +4,11 @@ request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
     console.log("success");
     var data = JSON.parse(request.responseText);
-    console.log(data.comics[1].title);
+    document.getElementById("title").innerHTML = data.comics[0].title;
+    document.getElementById("publisher").innerHTML = data.comics[0].publisher;
+    document.getElementById("description").innerHTML = data.comics[0].description;
   } else {
     console.log(request.status + " " + "Error")
   }
 };
-
 request.send();
